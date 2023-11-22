@@ -1,0 +1,20 @@
+import socket
+server="0.0.0.0"
+port=5500
+# server=socket.gethostbyname(socket.gethostname())
+#this will return local area ip address of computer but i need public ip adress
+SERVER=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+address=(server,port)
+SERVER.bind(address)
+SERVER.listen(1000000000)
+while True:
+ COMMUNICATE_SOCKET, address = SERVER.accept()
+ print(f"connected to {address}")
+ 
+ clients_message   =COMMUNICATE_SOCKET.recv(1024).decode("utf-8")
+ print(f"clients message is {clients_message}")   
+ while True:
+  COMMUNICATE_SOCKET.send(bytes("we got your message we will reply you soon, thanks".encode('utf-8'))) 
+  print("package send")
+COMMUNICATE_SOCKET.close()
+
