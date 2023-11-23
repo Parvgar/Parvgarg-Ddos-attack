@@ -4,7 +4,7 @@ port=3333
 #this will return local area ip address of computer but i need public ip adress
 SERVER=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 address=(server,port)
-SERVER.bind(address)
+#SERVER.bind(address)
 SERVER.listen(1000000000)
 while True:
  COMMUNICATE_SOCKET, address = SERVER.accept()
